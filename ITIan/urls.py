@@ -20,7 +20,6 @@ from myaccount.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',loginAcc,name=''),
-    path('logout',logOutAcc,name=''),
     path('register',registerAcc,name=''),
     path('Trainee/',include('trainee.urls')),
     path('Course/',include('course.urls')),
