@@ -1,0 +1,30 @@
+{%extends 'index.html' %}
+{%block title%}
+List Trainee
+{%endblock%} 
+{%block choise%}
+List Trainee
+{%endblock%} 
+{%block header%}
+Header
+{%endblock%} 
+{%block content%}
+<table style="width: 100%;" border="1">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Action</td>
+    </tr>
+    {%for trainee in trainees%}
+        <tr>
+            <td>{{trainee.0}}</td>
+            <td>{{trainee.1}}</td>
+            <td>
+                <a href="">Update</a>
+                <a href="">Delete</a>
+            </td>
+        </tr>
+    {%endfor%}
+</table>
+
+{%endblock%} 

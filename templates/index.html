@@ -10,7 +10,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> MainPage</title>
+    <title> 
+        {%block title%}
+        MainPage
+        {%endblock%}
+    </title>
 
     <!-- Custom fonts for this template-->
     <link href="{%static 'vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet" type="text/css">
@@ -42,7 +46,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="/Trainee">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Trainee</span></a>
             </li>
@@ -50,7 +54,31 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="/Trainee/add">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Add Trainee</span></a>
+            </li>
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/Trainee/update">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Update Trainee</span></a>
+            </li>
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/Trainee/delete">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Delete Trainee</span></a>
+            </li>
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/Course">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Course</span></a>
             </li>
@@ -58,17 +86,25 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="/Course/add">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Tasks</span></a>
+                    <span>Add Course</span></a>
             </li>
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="/Course/update">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Tasks</span></a>
+                    <span>Update Course</span></a>
+            </li>
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/Course/delete">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Delete Course</span></a>
             </li>
         </ul>
         <!-- End of Sidebar -->
@@ -123,11 +159,26 @@
                 <!-- End of Topbar -->
                 <!-- page conten -->
                 <div class="container-fluid">
-
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    <h1 class="h3 mb-0 text-gray-800">
+                        {%block choise%}
+                        {%endblock%}  
+                    </h1>    
+                    <div class="d-sm-flex align-items-center mb-4">
+                        
+                        <br>
+                        <div class="card shadow mb-4" style="width: 100%;">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary w-100">
+                                    {%block header%}
+                                    {%endblock%}  
+                                </h6>
+                                
+                            </div>
+                            <div class="card-body">
+                                {%block content%}
+                                {%endblock%}  
+                            </div>
+                        </div>
                     </div>
 
                 

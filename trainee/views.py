@@ -2,12 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 def traineeList(req):
-    return HttpResponse('Hello List Trainee')
+     trainees=[(1,"trainee1"),(2,"trainee2"),(3,"trainee3")]
+     context={}
+     context['trainees']=trainees
+     return render(req,'listTrainee.html',context)
 
 def traineeAdd(req):
-    return render(req,'index.html')
+    return render(req,'addTrainee.html')
 
 def traineeUpdate(req,id):
-    return HttpResponse('Hello Update Trainee')
+    return render(req,'updateTrainee.html')
 def traineeDelete(req,ID):
-    return HttpResponse('Hello Delete Trainee')
+    return render(req,'deleteTrainee.html')
