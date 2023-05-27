@@ -6,7 +6,7 @@ List Trainee
 List Trainee
 {%endblock%} 
 {%block header%}
-Header
+List
 {%endblock%} 
 {%block content%}
 <table style="width: 100%;" border="1">
@@ -20,8 +20,8 @@ Header
             <td>{{trainee.0}}</td>
             <td>{{trainee.1}}</td>
             <td>
-                <a href="">Update</a>
-                <a href="">Delete</a>
+                <a href="{%url 'traineeUpdate' trainee.0 %}">Update</a>
+                <a href="{%url 'traineeDelete' trainee.0 %}">Delete</a>
             </td>
         </tr>
     {%endfor%}

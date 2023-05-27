@@ -2,9 +2,29 @@
 {%block title%}
 List Trainee
 {%endblock%} 
+{%block choise%}
+List Trainee
+{%endblock%} 
 {%block header%}
-Header
+List
 {%endblock%} 
 {%block content%}
-content
+<table style="width: 100%;" border="1">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Action</td>
+    </tr>
+    {%for course in courses%}
+        <tr>
+            <td>{{course.0}}</td>
+            <td>{{course.1}}</td>
+            <td>
+                <a href="{%url 'courseUpdate' course.0 %}">Update</a>
+                <a href="{%url 'courseDelete' course.0 %}">Delete</a>
+            </td>
+        </tr>
+    {%endfor%}
+</table>
+
 {%endblock%} 

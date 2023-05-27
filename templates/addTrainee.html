@@ -6,8 +6,16 @@ Add Trainee
 Add Trainee
 {%endblock%} 
 {%block header%}
-Header
+Add
 {%endblock%} 
 {%block content%}
-content
+<form action="/Trainee">
+        <table style="width: 100%;" border="1">
+            <tr>
+                <td><input type="text" placeholder="Enter Train ID" style="width:100%;"></td>
+                <td><input type="text" placeholder="Enter Train Name"  style="width:100%;"></td>
+            </tr>
+        </table>
+        <input type="submit" name="addTrainee" id="" value="Add">
+</form>
 {%endblock%} 
