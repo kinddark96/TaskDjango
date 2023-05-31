@@ -9,5 +9,28 @@ Update Trainee
 Update
 {%endblock%} 
 {%block content%}
-you update trainee with id = {{context.id}}
+<form method="post">
+        <table style="width: 100%;" border="1">
+            {%csrf_token%}
+            <tr>
+                <td><input type="text" placeholder="Enter Train ID" style="width:100%;" name="trainee" value="{{Trainee.traineeName}}"></td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="courses" id="">
+                        {%for course in courses%}
+                            <option value="{{course.id}}"
+                            {%if course.id == Trainee.courseID.id %}
+                                selected
+                            {%endif%}
+                            >
+                                {{course.courseName}}
+                            </option>
+                        {%endfor%}
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" name="addTrainee" id="" value="Update">
+</form>
 {%endblock%} 

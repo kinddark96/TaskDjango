@@ -9,11 +9,20 @@ Add Trainee
 Add
 {%endblock%} 
 {%block content%}
-<form action="/Trainee">
+<form method="post">
         <table style="width: 100%;" border="1">
+            {%csrf_token%}
             <tr>
-                <td><input type="text" placeholder="Enter Train ID" style="width:100%;"></td>
-                <td><input type="text" placeholder="Enter Train Name"  style="width:100%;"></td>
+                <td><input type="text" placeholder="Enter Train ID" style="width:100%;" name="trainee"></td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="courses" id="">
+                        {%for course in courses%}
+                            <option value="{{course.id}}">{{course.courseName}}</option>
+                        {%endfor%}
+                    </select>
+                </td>
             </tr>
         </table>
         <input type="submit" name="addTrainee" id="" value="Add">

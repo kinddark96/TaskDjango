@@ -13,15 +13,19 @@ List
     <tr>
         <td>ID</td>
         <td>Name</td>
+        <td>Course</td>
+        <td>OverWrite Obj</td>
         <td>Action</td>
     </tr>
     {%for trainee in trainees%}
         <tr>
-            <td>{{trainee.0}}</td>
-            <td>{{trainee.1}}</td>
+            <td>{{trainee.id}}</td>
+            <td>{{trainee.traineeName}}</td>
+            <td>{{trainee.courseID.courseName}}</td>
+            <td>{{trainee.courseID}}</td>
             <td>
-                <a href="{%url 'traineeUpdate' trainee.0 %}">Update</a>
-                <a href="{%url 'traineeDelete' trainee.0 %}">Delete</a>
+                <a href="{%url 'traineeUpdate' trainee.id %}">Update</a>
+                <a href="{%url 'traineeDelete' trainee.id %}">Delete</a>
             </td>
         </tr>
     {%endfor%}
