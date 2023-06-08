@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from .models import *
+from .form import *
 # Create your views here.
 def loginAcc(req):
     context={}
@@ -25,6 +26,9 @@ def registerAcc(req):
         userInfo=Users(userName=username)
         userInfo.password=password
         userInfo.email=email
-        userInfo.save()
-        
+        userInfo.save()    
     return render(req,'register.html')
+
+def registerAdmin(req):
+    f=RegisterationAdminForm()
+    return render(req,'registAdmin.html')

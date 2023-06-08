@@ -22,6 +22,7 @@ urlpatterns = [
     path('',loginAcc,name=''),
     path('logout',logOut,name='logout'),
     path('register',registerAcc,name=''),
+    path('RegisterAdmin',registerAdmin,name='registerAdmin'),
     path('Trainee/',include('trainee.urls')),
     path('Course/',include('course.urls')),
   
