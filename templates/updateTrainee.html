@@ -10,7 +10,8 @@ Update
 {%endblock%} 
 {%block content%}
 <form method="post">
-        <table style="width: 100%;" border="1">
+    
+        <!-- <table style="width: 100%;" border="1">
             {%csrf_token%}
             <tr>
                 <td><input type="text" placeholder="Enter Train ID" style="width:100%;" name="trainee" value="{{Trainee.traineeName}}"></td>
@@ -30,7 +31,7 @@ Update
                     </select>
                 </td>
             </tr>
-        </table>
+        </table> -->
         <input type="submit" name="addTrainee" id="" value="Update">
 </form>
 {%endblock%} 

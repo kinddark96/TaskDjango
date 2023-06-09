@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
 from course.models import *
+from .form import *
+from django.contrib.auth.models import *
 # Create your views here.
 def traineeList(req):
      if('username' in req.session):
@@ -41,3 +43,34 @@ def traineeDelete(req,ID):
         return HttpResponseRedirect('/Trainee')
     else:
          return HttpResponseRedirect('/')
+#### function add trainee using (use form) ####
+def traineeAddFrom(req):
+    
+    f=AddTrainForm()
+    context={}
+    context['form']=f
+    context['courses']=Courses.objects.all()
+    if (req.method=='POST'):
+        f=AddTrainForm(req.POST)
+        if(f.is_bound):
+            course=Courses.objects.get(id=req.POST['courses'])
+            Trainees.objects.create(traineeName=req.POST['trainee'],courseID=course)
+            return HttpResponseRedirect('/Trainee')
+    return render(req,'addTrainee.html',context)
+#################################################
+
+
+#### function update trainee using (model form) ####
+def traineeUpdateModelForm(req,id):
+    if('username' in req.session):
+        context={}
+        context['courses']=Courses.objects.all()
+
+        context['form']=Trainees.objects.get(id=id)
+        if(req.method=='POST'):
+            course=Courses.objects.get(id=req.POST['courses'])
+            Trainees.objects.filter(id=id).update(traineeName=req.POST['trainee'],courseID=course)
+        return render(req,'updateTrainee.html',context)
+    else:
+         return HttpResponseRedirect('/')
+#################################################
