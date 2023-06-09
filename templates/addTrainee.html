@@ -10,7 +10,16 @@ Add
 {%endblock%} 
 {%block content%}
 <form method="post">
-        <table style="width: 100%;" border="1">
+    {%csrf_token%}
+    {{form.as_p}}
+    <label for="courses">Courses</label>
+    <select name="courses" id="">
+        {%for course in courses%}
+            <option value="{{course.id}}">{{course.courseName}}</option>
+        {%endfor%}
+    </select>
+    <br>
+        <!-- <table style="width: 100%;" border="1">
             {%csrf_token%}
             <tr>
                 <td><input type="text" placeholder="Enter Train Name" style="width:100%;" name="trainee"></td>
@@ -24,7 +33,7 @@ Add
                     </select>
                 </td>
             </tr>
-        </table>
+        </table> -->
         <input type="submit" name="addTrainee" id="" value="Add">
 </form>
 {%endblock%} 

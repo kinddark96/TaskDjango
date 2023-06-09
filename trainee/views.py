@@ -34,6 +34,7 @@ def traineeUpdate(req,id):
         if(req.method=='POST'):
             course=Courses.objects.get(id=req.POST['courses'])
             Trainees.objects.filter(id=id).update(traineeName=req.POST['trainee'],courseID=course)
+            return HttpResponseRedirect('/Trainee')
         return render(req,'updateTrainee.html',context)
     else:
          return HttpResponseRedirect('/')
@@ -54,7 +55,7 @@ def traineeAddFrom(req):
         f=AddTrainForm(req.POST)
         if(f.is_bound):
             course=Courses.objects.get(id=req.POST['courses'])
-            Trainees.objects.create(traineeName=req.POST['trainee'],courseID=course)
+            Trainees.objects.create(traineeName=req.POST['traineeName'],courseID=course)
             return HttpResponseRedirect('/Trainee')
     return render(req,'addTrainee.html',context)
 #################################################
@@ -65,11 +66,13 @@ def traineeUpdateModelForm(req,id):
     if('username' in req.session):
         context={}
         context['courses']=Courses.objects.all()
-
-        context['form']=Trainees.objects.get(id=id)
+        f=updateTraineeModelForm(instance=Trainees.objects.get(id=id))
+        context['form']=f
         if(req.method=='POST'):
-            course=Courses.objects.get(id=req.POST['courses'])
-            Trainees.objects.filter(id=id).update(traineeName=req.POST['trainee'],courseID=course)
+            course=Courses.objects.get(id=req.POST['courseID'])
+            
+            Trainees.objects.filter(id=id).update(traineeName=req.POST['traineeName'],courseID=course)
+            return HttpResponseRedirect('/Trainee')
         return render(req,'updateTrainee.html',context)
     else:
          return HttpResponseRedirect('/')
